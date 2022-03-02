@@ -1,0 +1,51 @@
+.add-container {
+    .form-input {
+        font-weight: 500;
+        font-size: 20px;
+    }
+    padding-bottom: 20px;
+    .btn-container {
+        text-align: end;
+        .add-btn {
+            background-color: black;
+            color: white;
+            height: 40px;
+            margin-top: 10px;
+        }
+    }
+    .image-preview {
+        margin-top: 10px;
+        img {
+            width: 30%;
+            height: 300px;
+        }
+    }
+}
+@media only screen and (min-width: 668px) and (max-width: 1024px) {
+    .add-container {
+        .btn-container {
+            .add-btn {
+            }
+        }
+        .image-preview {
+            img {
+                width: 50%;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 667px) {
+    .add-container {
+        .btn-container {
+            .add-btn {
+                width: 100%;
+            }
+        }
+        .image-preview {
+            img {
+                width: 100%;
+            }
+        }
+    }
+}

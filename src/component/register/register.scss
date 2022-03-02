@@ -1,0 +1,26 @@
+.register-container {
+    margin: 0 auto;
+    width: 50%;
+    .form-control {
+        height: 40px;
+        border-radius: 0;
+        border: 1px solid black;
+    }
+    .form-input {
+        font-size: 20px;
+        font-weight: 600;
+    }
+    .login-detail {
+        margin-bottom: 10px;
+    }
+    .login-item {
+        margin: 10px 0px;
+    }
+    .sign-in {
+        background-color: black;
+        color: white;
+        height: 50px;
+        width: 20%;
+        
+    }
+}

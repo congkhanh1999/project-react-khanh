@@ -1,0 +1,47 @@
+.navbar-container {
+    background-color: black;
+    height: 80px;
+    width: 100%;
+    .input-search {
+        margin-left: 20px;
+        height: 40px;
+        width: 35%;
+        border: none;
+    }
+    a {
+        padding: 34px 15px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 17px;
+        color: White;
+        font-weight: 500;
+        line-height: 70px;
+    }
+
+    a:hover {
+        background-color: #ddd;
+    }
+    a.active {
+        background-color: gray;
+        color: black;
+    }
+    .navbar-right {
+        float: right;
+        height: 100%;
+        margin-right: 10px;
+    }
+    .cart {
+        color: royalblue;
+        border-radius: 100%;
+        border: none;
+    }
+}
+@media only screen and (max-width: 667px) {
+    .input-search {
+        display: none;
+    }
+    .navbar-right {
+        float: none;
+        height: 100%;
+    }
+}

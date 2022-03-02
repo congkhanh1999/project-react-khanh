@@ -1,0 +1,12 @@
+.listUser-container {
+    margin: 0 auto;
+    text-align: center;
+    .user-container {
+        border: 1px solid black;
+        button {
+            float: right;
+            color: white;
+            background-color: black;
+        }
+    }
+}

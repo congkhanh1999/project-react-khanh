@@ -1,0 +1,97 @@
+.product-container {
+    width: 85vw;
+    margin: 0 auto;
+
+    .back-button {
+        padding-bottom: 20px;
+    }
+    .link-back {
+        color: black;
+        text-decoration: none;
+        font-size: 18px;
+        padding: 0px 5px 0px 5px;
+    }
+    .link-back:hover {
+        text-decoration: underline;
+    }
+    .link-back:first-child {
+        font-weight: 700;
+    }
+    .link-back:not(:last-child) {
+        border-right: 2px solid black;
+    }
+
+    margin-top: 40px;
+
+    .list-product {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        .product {
+            position: relative;
+            width: 23.5%;
+            margin: 0px 1px 0px 1px;
+            z-index: 0;
+            img {
+                width: 100%;
+            }
+            .btn-container {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                z-index: 1000;
+                .delete-btn {
+                    background-color: black;
+                    color: white;
+                }
+                .edit-btn {
+                    color: white;
+                    background-color: black;
+                }
+                .like-btn {
+                    color: white;
+                    background-color: black;
+                    float: right;
+                }
+                .liked-btn {
+                    color: red;
+                    background-color: black;
+                    float: right;
+                }
+            }
+            .btn-add-cart {
+                width: 40%;
+                color: white;
+                background-color: black;
+                height: 34px;
+                float: right;
+            }
+        }
+
+        .product:hover {
+            border: 1px solid black;
+            cursor: pointer;
+        }
+    }
+}
+@media only screen and (min-width: 668px) and (max-width: 1024px) {
+    .product-container {
+        .list-product {
+            .product {
+                width: 33%;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 667px) {
+    .product-container {
+        .list-product {
+            width: 100%;
+            .product {
+                width: 100%;
+            }
+        }
+    }
+}
