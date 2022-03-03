@@ -1,6 +1,7 @@
 import { faHeart, faPenToSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useState } from 'react';
+import ReactPaginate from 'react-paginate';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -11,10 +12,20 @@ import './products.scss';
 
 const Products = () => {
     const listFavourite = useSelector(state => state.favourite.listFavourite)
+    const [cartListProduct, setCartListProduct] = useState([])
+    const listProduct = useSelector(state => state.product.listProduct)
+
+
+    const [pageNumber, setPageNumber] = useState(0)
+    const productPerPage = 16;
+    const pagesVisited = pageNumber * productPerPage;
+    const pageCount = Math.ceil(listProduct.length / productPerPage)
+
     console.log(listFavourite)
     const dispatch = useDispatch()
     let history = useHistory();
-    const listProduct = useSelector(state => state.product.listProduct)
+
+
 
     const addProduct = (product) => {
         // setListProduct([...listProduct, product])
@@ -46,12 +57,14 @@ const Products = () => {
         }
     }
 
-    const [cartListProduct, setCartListProduct] = useState([])
+
     useEffect(() => {
         if (JSON.parse(localStorage.getItem('shopping_cart'))) {
             setCartListProduct(JSON.parse(localStorage.getItem('shopping_cart')));
         }
     }, [])
+
+
     const addToCart = (product) => {
         cartListProduct.push({ ...product, quantity: 1 })
         localStorage.setItem('shopping_cart', JSON.stringify(cartListProduct))
@@ -60,6 +73,13 @@ const Products = () => {
     const toEditPage = (id) => {
         history.push(`/product/edit/${id}`)
     }
+
+    const onPageChange = ({ selected }) => {
+        setPageNumber(selected)
+    }
+
+
+
     return (
         <>
 
@@ -74,7 +94,7 @@ const Products = () => {
                 <h2>All Products<span>({listProduct.length})</span></h2>
 
                 <div className="list-product">
-                    {listProduct.map((product) => {
+                    {listProduct.slice(pagesVisited, pagesVisited + productPerPage).map((product) => {
                         return (
                             <div key={product.id} className="product" >
                                 <div className="btn-container">
@@ -98,7 +118,17 @@ const Products = () => {
                     })}
 
                 </div>
-
+                <ReactPaginate
+                    previousLabel={"<"}
+                    nextLabel={">"}
+                    pageCount={pageCount}
+                    onPageChange={onPageChange}
+                    containerClassName={'pagination-container'}
+                    previousLinkClassName={'previous-btn'}
+                    nextLinkClassName={'next-btn'}
+                    activeClassName={'pagination-active'}
+                    disabledClassName={'disable-btn'}
+                />
             </div>
 
         </>

@@ -1,6 +1,36 @@
 .product-container {
     width: 85vw;
     margin: 0 auto;
+    .pagination-container {
+        margin-top: 30px;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        list-style: none;
+
+        .next-btn {
+            text-decoration: none;
+            color: black;
+        }
+        .previous-btn {
+            text-decoration: none;
+            color: black;
+        }
+        a {
+            padding: 10px;
+            margin: 15px;
+            width: 100%;
+            border: 2px solid black;
+        }
+        a:hover {
+            color: white !important;
+            background-color: black;
+        }
+        .pagination-active a {
+            background-color: black;
+            color: white !important;
+        }
+    }
 
     .back-button {
         padding-bottom: 20px;
@@ -61,7 +91,7 @@
                 }
             }
             .btn-add-cart {
-                width: 40%;
+                width: 45%;
                 color: white;
                 background-color: black;
                 height: 34px;
